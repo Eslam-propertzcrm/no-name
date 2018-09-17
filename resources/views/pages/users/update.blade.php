@@ -94,8 +94,11 @@
                         <div class="col-2">
                         </div>
                         <div class="col-10">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                            <button type="reset" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-success"> حفظ</button>
+
+                            <a href="{{url('/user')}}">
+                                <button type="button" class="btn btn-secondary">الغاء</button>
+                            </a>
                         </div>
                     </div>
                 </div>
