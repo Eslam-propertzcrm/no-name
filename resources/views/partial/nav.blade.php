@@ -261,7 +261,7 @@
                                     <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                                     <div class="m-dropdown__inner">
                                         <div class="m-dropdown__header m--align-center"
-                                             style="background: url(../../../assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+                                             style="background: url({{url('/')}}/assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
                                             <div class="m-card-user m-card-user--skin-dark">
                                                 <div class="m-card-user__pic">
                                                     <img src="{{url('/')}}/assets/app/media/img/users/user4.jpg"
