@@ -103,7 +103,7 @@
                         <div class="row form-group m-form__group m-login__form-sub">
 
                             <div class="col m--align-right">
-                                    <label class="m-checkbox m-checkbox--light">
+                                <label class="m-checkbox m-checkbox--light">
                                     <input type="checkbox" name="agree">
                                     موافق علي <a href="#" class="m-link m-link--focus"> الشروط و الاحكام </a>.
                                     <span></span>
@@ -113,13 +113,13 @@
 
                             <div class="col m--align-left">
                                 <div class="m-radio-inline">
-                                    <label style="color: #fff;"  class="m-radio m-radio--bold m-radio--state-success">
-                                        <input type="radio" name="type" value="3" > مزارع
+                                    <label style="color: #fff;" class="m-radio m-radio--bold m-radio--state-success">
+                                        <input type="radio" name="type" value="3"> مزارع
                                         <span></span>
                                     </label>
                                     <label class="m-radio m-radio--bold m-radio--state-success" style="color: #fff;">
-                                        <input  type="radio" name="type" value="2" checked>
-                                            تاجر
+                                        <input type="radio" name="type" value="2" checked>
+                                        تاجر
                                         <span></span>
                                     </label>
 
