@@ -15,12 +15,25 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/user', function () {
-    return view('pages.users.add');
+Route::resource('/user', 'UserController');
+Route::get('profile', 'UserController@profle');
+
+
+Route::get('/vegetableprice', function () {
+    echo ' vegetableprice';
 });
-//Route::resource('/user','');
+
+Route::get('/galleryVegetables', function () {
+    echo 'galleryVegetables ';
+});
+
+Route::get('/vegetable', function () {
+    echo ' vegetable';
+});
+Route::get('/orders', function () {
+    echo ' orders';
+});
+
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 

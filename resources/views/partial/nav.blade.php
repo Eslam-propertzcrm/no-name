@@ -272,8 +272,9 @@
                     -->
                                                 </div>
                                                 <div class="m-card-user__details">
-                                                    <span class="m-card-user__name m--font-weight-500">Mark Andre</span>
-                                                    <a href="" class="m-card-user__email m--font-weight-300 m-link">mark.andre@gmail.com</a>
+                                                    <span class="m-card-user__name m--font-weight-500">{{auth()->user()->name}}</span>
+                                                    <a href=""
+                                                       class="m-card-user__email m--font-weight-300 m-link">{{auth()->user()->phone}}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -308,8 +309,14 @@
                                                     <li class="m-nav__separator m-nav__separator--fit">
                                                     </li>
                                                     <li class="m-nav__item">
-                                                        <a href="../../../snippets/pages/user/login-1.html"
-                                                           class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
+                                                        <form method="post" action="{{url('/logout')}}">
+
+                                                            @csrf
+                                                            <button type="submit"
+                                                                    class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                Logout
+                                                            </button>
+                                                        </form>
                                                     </li>
                                                 </ul>
                                             </div>

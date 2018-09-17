@@ -8,7 +8,7 @@
     <title>Metronic | Login Page - 2</title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="{{url('/css/customStyle.css')}}">
     <!--begin::Web font -->
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
     <script>
@@ -52,14 +52,31 @@
                         <img src="assets/app/media/img/logos/logo-1.png">
                     </a>
                 </div>
+
+                <div class="text-center">
+                    @if($errors->all())
+                        <div style="color: #a94442; background-color: #f2dede; border-color: #ebccd1;" class="alert ">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div>
+
+
                 <div class="m-login__signin">
                     <div class="m-login__head">
-                        <h3 class="m-login__title">    سوق بدون اسم المركزي</h3>
+                        <h3 class="m-login__title"> سوق بدون اسم المركزي</h3>
                     </div>
-                    <form class="m-login__form m-form" action="crud/datatables/basic/basic.html">
+                    {{-- start login form--}}
+                    <form class="m-login__form m-form" method="POST" action="{{ route('login') }}"
+                          aria-label="{{ __('Login') }}">
+                        @csrf
                         <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder=" رقم الجوال" name="phone"
-                                   autocomplete="off">
+                            <input class="form-control m-input" type="number" placeholder=" رقم الجوال" name="phone"
+                                   autocomplete="off" value="{{ old('email') }}" required autofocus>
                         </div>
                         <div class="form-group m-form__group">
                             <input class="form-control m-input m-login__form-input--last" type="password"
@@ -68,94 +85,30 @@
                         <div class="row m-login__form-sub">
                             <div class="col m--align-left m-login__form-left">
                                 <label class="m-checkbox  m-checkbox--light">
-                                    <input type="checkbox" name="remember">تذكرني
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>تذكرني
                                     <span></span>
                                 </label>
                             </div>
                             <div class="col m--align-right m-login__form-right">
-                                <a href="javascript:;" id="m_login_forget_password" class="m-link">   نسيت كلمه المرور  ؟</a>
+                                <a href="javascript:;" id="m_login_forget_password" class="m-link"> نسيت كلمه المرور
+                                    ؟</a>
                             </div>
                         </div>
                         <div class="m-login__form-action">
-                            <button    type="submit"
-                                       class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">
+                            <button type="submit"
+                                    class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">
                                 تسجيل الدخول
                             </button>
                         </div>
                     </form>
+                    {{-- start login form--}}
                 </div>
-                <div class="m-login__signup">
-                    <div class="m-login__head">
-                        <h3 class="m-login__title"> سوق بدون اسم المركزي  </h3>
-                        <div class="m-login__desc">  ادخل بياناتك لانشاء حساب جيد :</div>
-                    </div>
-                    <form class="m-login__form m-form" action="">
-                        <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder=" اسم المستخدم" name="fullname">
-                        </div>
-                        <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder="رقم الجوال" name="email"
-                                   autocomplete="off">
-                        </div>
 
-                        <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder="   المحافظه" name="email"
-                                   autocomplete="off">
-                        </div>
-                        <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="password" placeholder=" كلمه المرور " name="password">
-                        </div>
-                        <div class="form-group m-form__group">
-                            <input class="form-control m-input m-login__form-input--last" type="password"
-                                   placeholder=" تاكيد كلمه المرور   " name="rpassword">
-                        </div>
-                        <div class="row form-group m-form__group m-login__form-sub">
-                            <div class="col m--align-left">
-                                <label class="m-checkbox m-checkbox--light">
-                                    <input type="checkbox" name="agree">
-                                    موافق علي <a href="#" class="m-link m-link--focus"> الشروط و الاحكام </a>.
-                                    <span></span>
-                                </label>
-                                <span class="m-form__help"></span>
-                            </div>
-                        </div>
-                        <div class="m-login__form-action">
-                            <button id="m_login_signup_submit"
-                                    class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">
-                                انشاء حساب
-                            </button>&nbsp;&nbsp;
-                            <button id="m_login_signup_cancel"
-                                    class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn">تسجيل دخول
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="m-login__forget-password">
-                    <div class="m-login__head">
-                        <h3 class="m-login__title"> نسيت كلمه المرور </h3>
-                        <div class="m-login__desc">ادخل     رقم الجوال  لاستعاده كلمه المرور </div>
-                    </div>
-                    <form class="m-login__form m-form" action="">
-                        <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder="رقم الجوال " name="email"
-                                   id="m_email" autocomplete="off">
-                        </div>
-                        <div class="m-login__form-action">
-                            <button id="m_login_forget_password_submit"
-                                    class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">
-                                ارسال كلمه المرور
-                            </button>&nbsp;&nbsp;
-                            <button id="m_login_forget_password_cancel"
-                                    class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn">تسجيل الدخول
-                            </button>
-                        </div>
-                    </form>
-                </div>
                 <div class="m-login__account">
 							<span class="m-login__account-msg">
 								 لا تمتلك حساب ؟
 							</span>&nbsp;&nbsp;
-                    <a href="javascript:;" id="m_login_signup" class="m-link m-link--light m-login__account-link">
+                    <a href="{{url('/register')}}"  class="m-link m-link--light m-login__account-link">
                         انشاء حساب جديد </a>
                 </div>
             </div>

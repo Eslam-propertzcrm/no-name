@@ -37,20 +37,22 @@ var DatatablesBasicBasic = {
             }, {
                 targets: 8, render: function (e, a, t, n) {
                     var s = {
-                        1: {title: "معلق", class: "m-badge--brand"},
+
+                        1: {title: "معلق", class: " m-badge--info"},
                         2: {title: "مفعل", class: " m-badge--success"},
-                        3: {title: "جاري التواصل", class: " m-badge--info"},
-                        4: {title: "محظور", class: " m-badge--danger"},
-                        5: {title: "قيد المراجعه", class: " m-badge--warning"}
+                        3: {title: "محظور", class: " m-badge--danger"},
+
                     };
                     return void 0 === s[e] ? e : '<span class="m-badge ' + s[e].class + ' m-badge--wide">' + s[e].title + "</span>"
                 }
             }, {
                 targets: 7, render: function (e, a, t, n) {
                     var s = {
-                        1: {title: "تاجر", state: "danger"},
-                        2: {title: "بائع", state: "primary"},
-                        3: {title: "موظف استقبال", state: "accent"}
+                        0: {title: "مدير", state: "danger"},
+                        1: {title: "مندوب", state: "primary"},
+                        2: {title: " تاجر", state: "accent"},
+                        3: {title: "   مزارع", state: "accent"},
+                        4: {title: "موظف استقبال", state: "accent"},
                     };
                     return void 0 === s[e] ? e : '<span class="m-badge m-badge--' + s[e].state + ' m-badge--dot"></span>&nbsp;<span class="m--font-bold m--font-' + s[e].state + '">' + s[e].title + "</span>"
                 }

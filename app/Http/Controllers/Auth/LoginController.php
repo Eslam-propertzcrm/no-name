@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
 
 class LoginController extends Controller
 {
@@ -25,7 +31,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile';
+
 
     /**
      * Create a new controller instance.
@@ -35,6 +42,53 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+
+    public function login(Request $request)
+    {
+        // Check validation
+        Validator::make($request->all(), [
+            'phone' => 'required',
+            'password' => 'required'
+        ]);
+
+        $user = \App\User::where(['phone' => $request->get('phone')])->first();
+
+
+        $userdata = array(
+            'phone' => Input::get('phone'),
+            'password' => Input::get('password')
+        );
+
+
+        // attempt to do the login
+        if (Auth::attempt($userdata)) {
+
+            switch ($user->type) {
+                case '0':
+                    return redirect('/user'); //ادمن
+                    break;
+                case '1':
+                    return redirect('/vegetableprice'); // مندوب
+                    break;
+                case '2':
+                    return redirect('/galleryVegetables'); //  تاجر
+                    break;
+                case '3':
+                    return redirect('/vegetable'); // مزارع
+                    break;
+                case '4':
+                    return redirect('/orders'); //  موظف استقبال
+                    break;
+            }
+
+        } else {
+            return Redirect::to('login');
+
+        }
+
+
     }
 
 }

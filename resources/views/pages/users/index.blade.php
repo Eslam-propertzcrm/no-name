@@ -12,7 +12,7 @@
         <div class="m-portlet__head-tools">
             <ul class="m-portlet__nav">
                 <li class="m-portlet__nav-item">
-                    <a href="#" class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air">
+                    <a href="{{url('/user/create')}}" class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air">
 												<span>
 													<i class="la la-plus"></i>
 													<span>اضافه مستخدم  جديد </span>
@@ -30,7 +30,7 @@
             <thead>
             <tr>
                 <th>Record ID</th>
-                <th>Order ID</th>
+                <th>#</th>
                 <th> الاسم</th>
                 <th>البلد</th>
                 <th>المحافظه</th>
@@ -42,127 +42,42 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>61715-075</td>
-                <td>علي الضيوفي</td>
-                <td>السعوديه</td>
-                <td>جده</td>
-                <td>9876543210</td>
-                <td>2/12/2018</td>
-                <td>2</td>
-                <td>1</td>
-                <td>
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only
+
+            @foreach($users as $key=>$user)
+                <tr>
+                    <td>1</td>
+                    <td>{{$key  + 1}}</td>
+                    <td>{{ $user->name}}</td>
+                    <td>{{ $user->country}}</td>
+                    <td>{{ $user->governorate}}</td>
+                    <td>{{ $user->phone}}</td>
+                    <td>{{ $user->created_at}}</td>
+                    <td>{{ $user->type}}</td>
+                    <td>2</td>
+                    <td>
+                        <a href="#" onclick="event.preventDefault();
+                                document.getElementById('delete-form-{{$user->id}}').submit();"
+                           class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only
                                     m-btn--pill"
-                       title="View">
-                        <i class="la la-trash-o"></i> </a>
+                           title="View">
+                            <i class="la la-trash-o"></i> </a>
 
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill"
-                       title="View">
-                        <i class="la la-edit"></i> </a>
+                        <a href="{{url('/user/'.$user->id.'/edit')}}"
+                           class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill"
+                           title="View">
+                            <i class="la la-edit"></i> </a>
 
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>61715-075</td>
-                <td>علي الضيوفي</td>
-                <td>السعوديه</td>
-                <td>جده</td>
-                <td>9876543210</td>
-                <td>2/12/2018</td>
-                <td>1</td>
-                <td>2</td>
-                <td>
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only
-                                    m-btn--pill"
-                       title="View">
-                        <i class="la la-trash-o"></i> </a>
+                        <form id="delete-form-{{$user->id}}" method="POST"
+                              action="{{url('/user').'/'.$user->id}}"
+                              enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                        </form>
 
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill"
-                       title="View">
-                        <i class="la la-edit"></i> </a>
+                    </td>
+                </tr>
 
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>61715-075</td>
-                <td>علي الضيوفي</td>
-                <td>السعوديه</td>
-                <td>جده</td>
-                <td>9876543210</td>
-                <td>2/12/2018</td>
-                <td>3</td>
-                <td>3</td>
-                <td>
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only
-                                    m-btn--pill"
-                       title="View">
-                        <i class="la la-trash-o"></i> </a>
-
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill"
-                       title="View">
-                        <i class="la la-edit"></i> </a>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>61715-075</td>
-                <td>علي الضيوفي</td>
-                <td>السعوديه</td>
-                <td>جده</td>
-                <td>9876543210</td>
-                <td>2/12/2018</td>
-                <td>2</td>
-                <td>4</td>
-                <td>
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only
-                                    m-btn--pill"
-                       title="View">
-                        <i class="la la-trash-o"></i> </a>
-
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill"
-                       title="View">
-                        <i class="la la-edit"></i> </a>
-
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>61715-075</td>
-                <td>علي الضيوفي</td>
-                <td>السعوديه</td>
-                <td>جده</td>
-                <td>9876543210</td>
-                <td>2/12/2018</td>
-                <td>3</td>
-                <td>5</td>
-                <td>
-
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only
-                                    m-btn--pill"
-                       title="View">
-                        <i class="la la-trash-o"></i> </a>
-
-                    <a href="#"
-                       class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill"
-                       title="View">
-                        <i class="la la-edit"></i> </a>
-
-                </td>
-            </tr>
-
+            @endforeach
 
             </tbody>
         </table>

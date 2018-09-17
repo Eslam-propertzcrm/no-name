@@ -17,13 +17,14 @@
         </div>
 
         <!--begin::Form-->
-        <form class="m-form m-form--fit m-form--label-align-right">
+        <form class="m-form m-form--fit m-form--label-align-right" method="post" action="{{url('/user')}}">
+            @csrf
             <div class="m-portlet__body">
 
                 <div class="form-group m-form__group row">
                     <label for="example-text-input" class="col-2 col-form-label"> الاسم</label>
                     <div class="col-10">
-                        <input class="form-control m-input" placeholder="ادخل  اسم  المستخدم " type="text"
+                        <input class="form-control m-input" placeholder=" ادخل  اسم  المستخدم " name="name" type="text"
                                id="example-text-input">
                     </div>
                 </div>
@@ -31,7 +32,7 @@
                 <div class="form-group m-form__group row">
                     <label for="example-number-input" class="col-2 col-form-label">رقم الجوال </label>
                     <div class="col-10">
-                        <input class="form-control m-input" type="number" placeholder="ادخل رقم الجوال "
+                        <input class="form-control m-input" name="phone" type="number" placeholder="ادخل رقم الجوال "
                                id="example-number-input">
                     </div>
                 </div>
@@ -40,23 +41,23 @@
                 <div class="form-group m-form__group row">
                     <label for="example-number-input" class="col-2 col-form-label"> البلد</label>
                     <div class="col-10">
-                        <select class="form-control m-input">
+                        <select class="form-control m-input" name="country">
                             <option selected disabled>اختار بلد المستخدم</option>
-                            <option value="1">مصر</option>
-                            <option value="2">الاردن</option>
-                            <option value="3">السعوديه</option>
-                            <option value="3">عمان</option>
+                            <option value="مصر">مصر</option>
+                            <option value="الاردن">الاردن</option>
+                            <option value="السعوديه">السعوديه</option>
+                            <option value="عمان">عمان</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group m-form__group row">
                     <label for="example-number-input" class="col-2 col-form-label"> المحافظه</label>
                     <div class="col-10">
-                        <select class="form-control m-input">
+                        <select class="form-control m-input" name="governorate">
                             <option selected disabled> اختار محافظه المستخدم</option>
-                            <option value="1"> القاهره</option>
-                            <option value="2">اسيوط</option>
-                            <option value="3">بنها</option>
+                            <option value="القاهره"> القاهره</option>
+                            <option value="اسيوط">اسيوط</option>
+                            <option value="بنها">بنها</option>
                         </select>
                     </div>
                 </div>
@@ -64,13 +65,13 @@
                 <div class="form-group m-form__group row">
                     <label for="example-number-input" class="col-2 col-form-label"> الرتبه</label>
                     <div class="col-10">
-                        <select class="form-control m-input">
+                        <select class="form-control m-input" name="type">
                             <option selected disabled>اختار رتبه المستخدم</option>
+                            <option value="1">مندوب</option>
                             <option value="2">تاجر</option>
-                            <option value="3">وكيل</option>
-                            <option value="3">مندوب</option>
-                            <option value="3">موظف استقبال</option>
-                            <option value="1">ادمن</option>
+                            <option value="3">مزارع</option>
+                            <option value="4">موظف استقبال</option>
+                            <option value="0">مدير</option>
                         </select>
                     </div>
                 </div>
@@ -78,7 +79,8 @@
                 <div class="form-group m-form__group row">
                     <label for="example-password-input" class="col-2 col-form-label">كلمه المرور </label>
                     <div class="col-10">
-                        <input class="form-control m-input" type="password" placeholder="ادخل كلمه المرور"
+                        <input class="form-control m-input" name="password" type="password"
+                               placeholder="ادخل كلمه المرور"
                                id="example-password-input">
                     </div>
                 </div>
@@ -86,7 +88,8 @@
                 <div class="form-group m-form__group row">
                     <label for="example-password-input" class="col-2 col-form-label"> تاكيد كلمه المرور</label>
                     <div class="col-10">
-                        <input class="form-control m-input" type="password" placeholder=" ادخل تاكيد كلمه المرور "
+                        <input class="form-control m-input" name="password_confirmation" type="password"
+                               placeholder=" ادخل تاكيد كلمه المرور "
                                id="example-password-input">
                     </div>
                 </div>
@@ -98,7 +101,7 @@
                         <div class="col-2">
                         </div>
                         <div class="col-10">
-                            <button type="reset" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
                             <button type="reset" class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
