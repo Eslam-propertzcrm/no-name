@@ -6,8 +6,8 @@
             <div class="m-stack__item m-brand  m-brand--skin-dark ">
                 <div class="m-stack m-stack--ver m-stack--general">
                     <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                        <a href="../../../index.html" class="m-brand__logo-wrapper">
-                            <img alt="" src="../../../assets/demo/default/media/img/logo/logo_default_dark.png"/>
+                        <a href="{{url('/')}}" class="m-brand__logo-wrapper">
+                            <img alt="" src="{{url('/')}}/assets/demo/default/media/img/logo/logo_default_dark.png"/>
                         </a>
                     </div>
                     <div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -55,7 +55,7 @@
                                     <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
                                     <div class="m-dropdown__inner">
                                         <div class="m-dropdown__header m--align-center"
-                                             style="background: url(../../../assets/app/media/img/misc/notification_bg.jpg); background-size: cover;">
+                                             style="background: url({{url('/')}}/assets/app/media/img/misc/notification_bg.jpg); background-size: cover;">
                                             <span class="m-dropdown__header-title">9 New</span>
                                             <span class="m-dropdown__header-subtitle">User Notifications</span>
                                         </div>
@@ -189,14 +189,14 @@
                                 <a href="#" class="m-nav__link m-dropdown__toggle">
 												<span class="m-nav__link-text">
 													<img class="m-topbar__language-selected-img"
-                                                         src="../../../assets/app/media/img/flags/020-flag.svg">
+                                                         src="{{url('/')}}/assets/app/media/img/flags/020-flag.svg">
 												</span>
                                 </a>
                                 <div class="m-dropdown__wrapper">
                                     <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                                     <div class="m-dropdown__inner">
                                         <div class="m-dropdown__header m--align-center"
-                                             style="background: url(../../../assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+                                             style="background: url({{url('/')}}/assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
                                             <span class="m-dropdown__header-subtitle">Select your language</span>
                                         </div>
                                         <div class="m-dropdown__body">
@@ -206,7 +206,7 @@
                                                         <a href="#" class="m-nav__link m-nav__link--active">
                                                                 <span class="m-nav__link-icon"><img
                                                                             class="m-topbar__language-img"
-                                                                            src="../../../assets/app/media/img/flags/020-flag.svg"></span>
+                                                                            src="{{url('/')}}/assets/app/media/img/flags/020-flag.svg"></span>
                                                             <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">USA</span>
                                                         </a>
                                                     </li>
@@ -214,7 +214,7 @@
                                                         <a href="#" class="m-nav__link">
                                                                 <span class="m-nav__link-icon"><img
                                                                             class="m-topbar__language-img"
-                                                                            src="../../../assets/app/media/img/flags/015-china.svg"></span>
+                                                                            src="{{url('/')}}/assets/app/media/img/flags/015-china.svg"></span>
                                                             <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">China</span>
                                                         </a>
                                                     </li>
@@ -222,7 +222,7 @@
                                                         <a href="#" class="m-nav__link">
                                                                 <span class="m-nav__link-icon"><img
                                                                             class="m-topbar__language-img"
-                                                                            src="../../../assets/app/media/img/flags/016-spain.svg"></span>
+                                                                            src="{{url('/')}}/assets/app/media/img/flags/016-spain.svg"></span>
                                                             <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">Spain</span>
                                                         </a>
                                                     </li>
@@ -230,7 +230,7 @@
                                                         <a href="#" class="m-nav__link">
                                                                 <span class="m-nav__link-icon"><img
                                                                             class="m-topbar__language-img"
-                                                                            src="../../../assets/app/media/img/flags/014-japan.svg"></span>
+                                                                            src="{{url('/')}}/assets/app/media/img/flags/014-japan.svg"></span>
                                                             <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">Japan</span>
                                                         </a>
                                                     </li>
@@ -238,7 +238,7 @@
                                                         <a href="#" class="m-nav__link">
                                                                 <span class="m-nav__link-icon"><img
                                                                             class="m-topbar__language-img"
-                                                                            src="../../../assets/app/media/img/flags/017-germany.svg"></span>
+                                                                            src="{{url('/')}}/assets/app/media/img/flags/017-germany.svg"></span>
                                                             <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">Germany</span>
                                                         </a>
                                                     </li>
@@ -252,7 +252,7 @@
                                 m-dropdown-toggle="click">
                                 <a href="#" class="m-nav__link m-dropdown__toggle">
 												<span class="m-topbar__userpic">
-													<img src="../../../assets/app/media/img/users/user4.jpg"
+													<img src="{{url('/')}}/assets/app/media/img/users/user4.jpg"
                                                          class="m--img-rounded m--marginless" alt=""/>
 												</span>
                                     <span class="m-topbar__username m--hide">Nick</span>
@@ -264,7 +264,7 @@
                                              style="background: url(../../../assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
                                             <div class="m-card-user m-card-user--skin-dark">
                                                 <div class="m-card-user__pic">
-                                                    <img src="../../../assets/app/media/img/users/user4.jpg"
+                                                    <img src="{{url('/')}}/assets/app/media/img/users/user4.jpg"
                                                          class="m--img-rounded m--marginless" alt=""/>
 
                                                     <!--
