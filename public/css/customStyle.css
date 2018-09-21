@@ -1,9 +1,13 @@
 .m-dropdown.m-dropdown--align-center .m-dropdown__wrapper {
-    margin-right: -175.5px;
+    margin-right: -224.5px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none !important;
     margin: 0 !important;
+}
+
+.alert-arrow {
+    right: 60% !important;
 }
