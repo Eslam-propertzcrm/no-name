@@ -12,7 +12,7 @@
                             </div>
                             <div class="m-card-profile__pic">
                                 <div class="m-card-profile__pic-wrapper">
-                                    <img src="../assets/app/media/img/users/user4.jpg" alt=""/>
+                                    <img src="{{url('/')}}/assets/app/media/img/users/user4.jpg" alt=""/>
                                 </div>
                             </div>
                             <div class="m-card-profile__details">
