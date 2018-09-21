@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,8 @@ Route::get('/', function () {
 //admin
 Route::resource('/user', 'UserController');
 Route::get('/profile', 'UserController@profile');
+
+Route::post('/profile/{id}', 'GeneralUser@update');
 
 
 //dealer

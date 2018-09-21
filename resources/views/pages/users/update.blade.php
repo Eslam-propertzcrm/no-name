@@ -18,6 +18,7 @@
         <form class="m-form m-form--fit m-form--label-align-right" method="post" action="{{url('/user/'.$user->id)}}">
             @csrf
             {{method_field('put')}}
+
             <div class="m-portlet__body">
 
                 <div class="form-group m-form__group row">
