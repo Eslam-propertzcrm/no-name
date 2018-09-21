@@ -31,9 +31,25 @@ class DealerController extends Controller
         return view('pages.dealer.order');
     }
 
+    public static function messages($id = '')
+    {
+        return [
+            'productName.required' => 'دخل ام الزفت',
+
+        ];
+    }
+
     public function submitDealerOrder(Request $request)
     {
-//        dd();
+
+
+        $this->validate($request, [
+            'productName' => 'required',
+            'productName.*' => 'required',
+            'numberBox' => 'required',
+            'numberBox.*' => 'required',
+        ]);
+
         $order = new order();
         $order->user_id = auth()->user()->id;
         $order->save();
