@@ -12,27 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect('login');
 });
-
+//admin
 Route::resource('/user', 'UserController');
-Route::get('profile', 'UserController@profle');
+Route::get('/profile', 'UserController@profile');
 
 
-Route::get('/vegetableprice', function () {
-    echo ' vegetableprice';
-});
+//dealer
+Route::get('/dealerProductGallery', 'DealerController@showGalleryProduct');
+Route::get('/dealerOrder', 'DealerController@showDealerOrder');
+Route::post('/dealerOrder', 'DealerController@submitDealerOrder');
 
-Route::get('/galleryVegetables', function () {
-    echo 'galleryVegetables ';
-});
+//delegate
+Route::resource('/priceUpdate', 'DelegateController');
+Route::get('/galleryProduct', 'DelegateController@showGalleryProduct');
 
-Route::get('/vegetable', function () {
-    echo ' vegetable';
-});
-Route::get('/orders', function () {
-    echo ' orders';
-});
+//farmer
+Route::resource('/farmerProduct', 'FarmerController');
+Route::get('/farmerLoan', 'FarmerController@showFarmerLoan');
+Route::post('/farmerLoan', 'FarmerController@submitFarmerLoan');
 
 
 Auth::routes();

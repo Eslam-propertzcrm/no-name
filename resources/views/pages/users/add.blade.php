@@ -38,27 +38,39 @@
                 </div>
 
 
-                <div class="form-group m-form__group row">
-                    <label for="example-number-input" class="col-2 col-form-label"> البلد</label>
+                <div class="form-group m-form__group  row">
+
+                    <label for="example-number-input" class="col-2 col-form-label"> البلد </label>
+
                     <div class="col-10">
-                        <select class="form-control m-input" name="country">
+                        <select class="form-control m-input" name="country" id="country" required
+                                style="padding: 0px 1.5rem;">
                             <option selected disabled>اختار بلد المستخدم</option>
                             <option value="مصر">مصر</option>
                             <option value="الاردن">الاردن</option>
                             <option value="السعوديه">السعوديه</option>
-                            <option value="عمان">عمان</option>
                         </select>
                     </div>
                 </div>
+
                 <div class="form-group m-form__group row">
-                    <label for="example-number-input" class="col-2 col-form-label"> المحافظه</label>
+
+                    <label for="example-number-input" class="col-2 col-form-label"> المحافظه </label>
+
+
                     <div class="col-10">
-                        <select class="form-control m-input" name="governorate">
-                            <option selected disabled> اختار محافظه المستخدم</option>
-                            <option value="القاهره"> القاهره</option>
-                            <option value="اسيوط">اسيوط</option>
-                            <option value="بنها">بنها</option>
+                        <select class="form-control m-input" name="governorate" id="governorate" required
+                                style="padding: 0px 1.5rem;">
+                            <option selected>اختار المحافظه</option>
                         </select>
+                    </div>
+                </div>
+
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-2 col-form-label"> المدينه</label>
+                    <div class="col-10">
+                        <input class="form-control m-input" placeholder=" ادخل المدينه " name="city" type="text"
+                               id="example-text-input">
                     </div>
                 </div>
 
@@ -75,6 +87,7 @@
                         </select>
                     </div>
                 </div>
+
 
                 <div class="form-group m-form__group row">
                     <label for="example-password-input" class="col-2 col-form-label">كلمه المرور </label>

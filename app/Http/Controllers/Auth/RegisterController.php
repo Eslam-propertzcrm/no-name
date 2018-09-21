@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'phone' => 'required',
             'country' => 'required',
             'governorate' => 'required',
+            'city' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -72,8 +73,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'phone' => $data['phone'],
             'country' => $data['country'],
-            'type' => $data['type'],
             'governorate' => $data['governorate'],
+            'city' => $data['city'],
+            'type' => $data['type'],
             'password' => Hash::make($data['password']),
         ]);
     }

@@ -43,4 +43,11 @@
 
     <link rel="stylesheet" href="{{url('/css/customStyle.css')}}">
     {{-- end custom style --}}
+    <link href="https://fonts.googleapis.com/css?family=Tajawal:400,700,900" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, li, a {
+            font-family: 'Roboto', 'Tajawal', sans-serif !important;
+        }
+    </style>
+
 </head>

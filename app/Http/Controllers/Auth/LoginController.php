@@ -70,16 +70,16 @@ class LoginController extends Controller
                     return redirect('/user'); //ادمن
                     break;
                 case '1':
-                    return redirect('/vegetableprice'); // مندوب
+                    return redirect('/galleryProduct'); // مندوب
                     break;
                 case '2':
-                    return redirect('/galleryVegetables'); //  تاجر
+                    return redirect('/dealerProductGallery'); //  تاجر
                     break;
                 case '3':
-                    return redirect('/vegetable'); // مزارع
+                    return redirect('/farmerProduct'); // مزارع
                     break;
                 case '4':
-                    return redirect('/orders'); //  موظف استقبال
+                    return redirect('/orders'); // كول سنتر
                     break;
             }
 

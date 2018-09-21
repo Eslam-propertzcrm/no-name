@@ -4,18 +4,18 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class isAdmin
+class isDealer
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->type != 0) {
+        if (auth()->user()->type != 2) {
             return back();
         }
         return $next($request);

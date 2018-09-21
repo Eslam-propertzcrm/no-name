@@ -37,31 +37,45 @@
                 </div>
 
 
-                <div class="form-group m-form__group row">
-                    <label for="example-number-input" class="col-2 col-form-label"> البلد</label>
+                <div class="form-group m-form__group  row">
+
+                    <label for="example-number-input" class="col-2 col-form-label"> البلد </label>
+
                     <div class="col-10">
-                        <select class="form-control m-input" name="country">
+                        <select class="form-control m-input" name="country" id="country" required
+                                style="padding: 0px 1.5rem;">
                             <option selected disabled>اختار بلد المستخدم</option>
                             <option value="مصر" {{$user->country == 'مصر' ? 'selected ':''}} >مصر</option>
                             <option value="الاردن" {{$user->country == 'الاردن' ? 'selected ':''}} >الاردن</option>
                             <option value="السعوديه" {{$user->country == 'السعوديه' ? 'selected ':''}} >السعوديه
                             </option>
-                            <option value="عمان" {{$user->country == 'عمان' ? 'selected ':''}} >عمان</option>
                         </select>
                     </div>
                 </div>
+
                 <div class="form-group m-form__group row">
-                    <label for="example-number-input" class="col-2 col-form-label"> المحافظه</label>
+
+                    <label for="example-number-input" class="col-2 col-form-label"> المحافظه </label>
+
+
                     <div class="col-10">
-                        <select class="form-control m-input" name="governorate">
-                            <option disabled> اختار محافظه المستخدم</option>
-                            <option value="القاهره" {{$user->governorate == 'القاهره' ? 'selected ':''}}> القاهره
-                            </option>
-                            <option value="اسيوط" {{$user->governorate == 'اسيوط' ? 'selected ':''}}>اسيوط</option>
-                            <option value="بنها" {{$user->governorate == 'بنها' ?' selected ':''}}>بنها</option>
+                        <select class="form-control m-input" name="governorate" id="governorate" required
+                                style="padding: 0px 1.5rem;">
+                            <option selected>اختار المحافظه</option>
+                            <option value="{{$user->governorate}}" selected> {{$user->governorate}}</option>
                         </select>
                     </div>
                 </div>
+
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-2 col-form-label"> المدينه</label>
+                    <div class="col-10">
+                        <input class="form-control m-input" placeholder=" ادخل المدينه " value="{{$user->city}}"
+                               name="city" type="text"
+                               id="example-text-input">
+                    </div>
+                </div>
+
 
                 <div class="form-group m-form__group row">
                     <label for="example-number-input" class="col-2 col-form-label"> الرتبه</label>

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class isAdmin
+class isCallCenter
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->type != 0) {
+        if (auth()->user()->type != 4) {
             return back();
         }
         return $next($request);

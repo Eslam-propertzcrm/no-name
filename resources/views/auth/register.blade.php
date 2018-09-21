@@ -82,13 +82,32 @@
                             <input class="form-control m-input" type="number" placeholder="رقم الجوال" name="phone"
                                    value="{{ old('phone') }}" required>
                         </div>
-                        <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder="   البلد" name="country"
-                                   value="{{ old('country') }}" required>
+
+
+                        <div class="form-group m-form__group ">
+                            <select class="form-control m-input" name="country" id="country" required
+                                    style="padding: 0px 1.5rem;">
+                                <option selected disabled>اختار البلد</option>
+                                <option value="مصر">مصر</option>
+                                <option value="السعوديه">السعوديه</option>
+                                <option value="الاردن">الاردن</option>
+                            </select>
                         </div>
+
+
+                        <div class="form-group m-form__group ">
+                            <select class="form-control m-input" name="governorate" id="governorate" required
+                                    style="padding: 0px 1.5rem;">
+                                <option selected>اختار المحافظه</option>
+
+
+                            </select>
+                        </div>
+
+
                         <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder="   المحافظه" name="governorate"
-                                   value="{{ old('governorate') }}" required>
+                            <input class="form-control m-input" type="text" placeholder="   المدينه" name="city"
+                                   value="{{ old('city') }}" required>
                         </div>
 
                         <div class="form-group m-form__group">
@@ -158,6 +177,105 @@
 <!--begin::Page Scripts -->
 <script src="assets/snippets/custom/pages/user/login.js" type="text/javascript"></script>
 
+
+<script>
+
+
+    $(document).ready(function () {
+// Initializing arrays with city names.
+        var egypt = [
+            {display: "القاهره", value: "القاهره"},
+            {display: "الجيزه", value: "الجيزه"},
+            {display: "الاسكندريه", value: "الاسكندريه"},
+            {display: "الاسماعيليه", value: "الاسماعيليه"},
+            {display: "اسيوط", value: "اسيوط"},
+            {display: "الاقصر", value: "الاقصر"},
+            {display: "بني سويف", value: "بني سويف"},
+            {display: "المنصوره", value: "المنصوره"},
+            {display: " سوهاج", value: " سوهاج"},
+            {display: "السويس", value: "السويس"},
+            {display: " الشرقيه", value: " الشرقيه"},
+            {display: "طنطا", value: "طنطا"},
+            {display: "الفيوم", value: "الفيوم"},
+            {display: " بنها", value: " بنها"},
+            {display: "قنا", value: "قنا"},
+            {display: " سبين الكوم", value: " سبين الكوم"},
+            {display: "المنيا", value: "المنيا"},
+
+
+        ];
+        var Saudi = [
+            {display: "مكه المكرمه", value: "مكه المكرمه"},
+            {display: "المدينه المنوره", value: "المدينه المنوره"},
+            {display: "الرياض", value: "الرياض"},
+            {display: "الشرقيه", value: "الشرقيه"},
+            {display: "الفصيم", value: "الفصيم"},
+            {display: "عسير", value: "عسير"},
+            {display: "حائل", value: "حائل"},
+            {display: "تبوك", value: "تبوك"},
+            {display: "نجران", value: "نجران"},
+            {display: "جازان", value: "جازان"},
+            {display: "الباحه", value: "الباحه"},
+            {display: "الشماليه", value: "الشماليه"},
+            {display: "الجوف", value: "الجوف"},
+            {display: "الباطن", value: "الباطن"},
+            {display: "سدير", value: "سدير"},
+            {display: "الوسطي", value: "الوسطي"},
+            {display: "الخرج", value: "الخرج"},
+            {display: "الوادي", value: "الوادي"},
+            {display: "الطائف", value: "الطائف"},
+            {display: "العلا", value: "العلا"},
+            {display: "الاحساء", value: "الاحساء"},
+        ];
+        var Jordan = [
+            {display: "عمان", value: "عمان"},
+            {display: "اربد", value: "اربد"},
+            {display: "الزرقاء", value: "الزرقاء"},
+
+            {display: "السلط", value: "السلط"},
+            {display: "المفرق", value: "المفرق"},
+            {display: "الكرك", value: "الكرك"},
+
+            {display: "مادبا", value: "مادبا"},
+            {display: "جرش", value: "جرش"},
+            {display: "عجلون", value: "عجلون"},
+
+            {display: "العقيه", value: "العقيه"},
+            {display: "معان", value: "معان"},
+            {display: "الطفيله", value: "الطفيله"},
+
+
+        ];
+// Function executes on change of first select option field.
+        $("#country").change(function () {
+            var select = $("#country option:selected").val();
+            switch (select) {
+                case "مصر":
+                    city(egypt);
+                    break;
+                case "السعوديه":
+                    city(Saudi);
+                    break;
+                case "الاردن":
+                    city(Jordan);
+                    break;
+                default:
+                    $("#governorate").empty();
+                    $("#governorate").append("<option>-- اختار المحافظه--</option>");
+                    break;
+            }
+        });
+
+// Function To List out Cities in Second Select tags
+        function city(arr) {
+            $("#governorate").empty(); //To reset cities
+            $("#governorate").append("<option> اختار المحافظه </option>");
+            $(arr).each(function (i) { //to list cities
+                $("#governorate").append("<option value=" + arr[i].value + ">" + arr[i].display + "</option>")
+            });
+        }
+    });
+</script>
 <!--end::Page Scripts -->
 </body>
 
