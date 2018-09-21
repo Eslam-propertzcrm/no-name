@@ -39,7 +39,7 @@
         <hr>
 
 
-        <div class="m-portlet__body">
+        <div class="content-collapse ">
 
             <!--begin::Section-->
             <div class="m-accordion m-accordion--default m-accordion--solid" id="m_accordion_3" role="tablist">
