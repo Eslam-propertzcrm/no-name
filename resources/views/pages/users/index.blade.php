@@ -83,3 +83,8 @@
         </table>
     </div>
 @stop
+
+@section('script')
+    <script src="{{url('/')}}/assets/demo/default/custom/crud/datatables/basic/basic.js"
+            type="text/javascript"></script>
+@stop

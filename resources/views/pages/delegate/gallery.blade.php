@@ -12,7 +12,7 @@
     <div class="m-portlet__body">
 
         <!--begin: Datatable -->
-        <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_2">
+        <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
             <thead>
             <tr>
 
@@ -58,22 +58,23 @@
                              aria-labelledby="m_accordion_3_item_1_head" data-parent="#m_accordion_3" style="">
                             <div class="m-accordion__item-content">
 
-                                <table class="table table-bordered m-table m-table--border-success">
+                                <table class="table table-striped- table-bordered table-hover table-checkable"
+                                       id="m_table_1">
                                     <thead>
                                     <tr>
-                                        <th>السنف</th>
+                                        <th>الصنف</th>
                                         <th>السعر</th>
                                         <th>المحافظه</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($market as $m)
-                                    <tr>
-                                        <td> {{$m->product}}</td>
-                                        <td> {{$m->price}}</td>
-                                        <td> {{$m->governorate}}</td>
-                                    </tr>
-@endforeach
+                                        <tr>
+                                            <td> {{$m->product}}</td>
+                                            <td> {{$m->price}}</td>
+                                            <td> {{$m->governorate}}</td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
 
@@ -92,4 +93,9 @@
 
 
 
+@stop
+
+
+@section('script')
+    <script src="{{url('/assets/myDataTable.js')}}"></script>
 @stop

@@ -10,7 +10,9 @@
 <!--end::Page Vendors -->
 
 <!--begin::Page Scripts -->
-<script src="{{url('/')}}/assets/demo/default/custom/crud/datatables/basic/basic.js" type="text/javascript"></script>
+
+
+@yield('script')
 
 
 <script>
