@@ -52,18 +52,50 @@
                 <div class="form-group m-form__group row">
                     <label for="example-text-input" class="col-2 col-form-label"> نوع الخضار </label>
                     <div class="col-10">
-                        <input class="form-control m-input" value="{{$market->product}}"
-                               placeholder=" ادخل    نوع الخضار " name="product"
-                               type="text" id="example-text-input">
+                        <select class="form-control m-input" name="product">
+                            <option selected disabled> اختار نوع الخضار</option>
+                            @foreach($vegetables as $vegetable)
+
+                                <option value="{{$vegetable->product}}" {{$vegetable->product == $market->product? 'selected':''}}>
+                                    {{ $vegetable->product }}
+
+                                    {{' ['}}
+                                    {{'     حموله الصنوق '}}
+                                    <?php
+                                    $country = auth()->user()->country;
+                                    switch ($country) {
+                                        case  'مصر':
+                                            echo $vegetable->egypt;
+                                            break;
+
+                                        case  'الاردن':
+                                            echo $vegetable->Jordan;
+                                            break;
+
+                                        case  'السعوديه':
+                                            echo $vegetable->Saudi;
+                                            break;
+
+                                    }
+                                    ?>
+                                    {{'كيلو جرام '}}
+                                    {{']'}}
+                                </option>
+
+
+                            @endforeach
+                        </select>
+
                     </div>
                 </div>
+
 
                 <div class="form-group m-form__group row">
                     <label for="example-number-input" class="col-2 col-form-label"> السعر </label>
                     <div class="col-10">
                         <input class="form-control m-input" value="{{$market->price}}" name="price" type="number"
                                placeholder=" ادخل السعر "
-                               id="example-number-input">
+                               id="example-number-input" required>
                     </div>
                 </div>
 

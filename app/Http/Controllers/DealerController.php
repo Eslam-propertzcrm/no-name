@@ -28,16 +28,11 @@ class DealerController extends Controller
 
     public function showDealerOrder()
     {
-        return view('pages.dealer.order');
+        return view('pages.dealer.order')->with([
+            'vegetables' => \App\vegetable::get(),
+        ]);
     }
 
-    public static function messages($id = '')
-    {
-        return [
-            'productName.required' => 'دخل ام الزفت',
-
-        ];
-    }
 
     public function submitDealerOrder(Request $request)
     {

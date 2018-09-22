@@ -25,7 +25,9 @@ class DelegateController extends Controller
 
     public function create()
     {
-        return view('pages.delegate.add');
+        return view('pages.delegate.add')->with([
+            'vegetables' => \App\vegetable::get(),
+        ]);;
     }
 
     public function store(Request $request)
@@ -57,6 +59,8 @@ class DelegateController extends Controller
         $market = market::find($id);
         return view('pages.delegate.update')->with([
             'market' => $market,
+            'vegetables' => \App\vegetable::get(),
+
         ]);
     }
 

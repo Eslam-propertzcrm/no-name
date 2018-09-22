@@ -25,7 +25,8 @@
                     <label for="example-text-input" class="col-2 col-form-label"> الاسم</label>
                     <div class="col-10">
                         <input class="form-control m-input" placeholder=" ادخل  اسم  المستخدم " name="name" type="text"
-                               id="example-text-input">
+                               id="example-text-input"
+                               value="{{ old('name') }}" required>
                     </div>
                 </div>
 
@@ -33,7 +34,8 @@
                     <label for="example-number-input" class="col-2 col-form-label">رقم الجوال </label>
                     <div class="col-10">
                         <input class="form-control m-input" name="phone" type="number" placeholder="ادخل رقم الجوال "
-                               id="example-number-input">
+                               id="example-number-input"
+                               value="{{ old('phone') }}" required>
                     </div>
                 </div>
 
@@ -46,9 +48,9 @@
                         <select class="form-control m-input" name="country" id="country" required
                                 style="padding: 0px 1.5rem;">
                             <option selected disabled>اختار بلد المستخدم</option>
-                            <option value="مصر">مصر</option>
-                            <option value="الاردن">الاردن</option>
-                            <option value="السعوديه">السعوديه</option>
+                            <option value="مصر" {{ old('country') == 'مصر' ? 'selected':''}}>مصر</option>
+                            <option value="الاردن" {{ old('country') == 'الاردن' ? 'selected':''}}>الاردن</option>
+                            <option value="السعوديه" {{ old('country') == 'السعوديه' ? 'selected':''}}>السعوديه</option>
                         </select>
                     </div>
                 </div>
@@ -61,7 +63,13 @@
                     <div class="col-10">
                         <select class="form-control m-input" name="governorate" id="governorate" required
                                 style="padding: 0px 1.5rem;">
-                            <option selected>اختار المحافظه</option>
+                            @if(old('governorate') )
+                                <option selected value="{{ old('governorate')}}">{{ old('governorate')}}</option>
+
+                            @else
+                                <option selected>اختار المحافظه</option>
+
+                            @endif
                         </select>
                     </div>
                 </div>
@@ -70,20 +78,21 @@
                     <label for="example-text-input" class="col-2 col-form-label"> المدينه</label>
                     <div class="col-10">
                         <input class="form-control m-input" placeholder=" ادخل المدينه " name="city" type="text"
-                               id="example-text-input">
+                               id="example-text-input"
+                               value="{{ old('city') }}" required>
                     </div>
                 </div>
 
                 <div class="form-group m-form__group row">
                     <label for="example-number-input" class="col-2 col-form-label"> الرتبه</label>
                     <div class="col-10">
-                        <select class="form-control m-input" name="type">
+                        <select class="form-control m-input" name="type" required>
                             <option selected disabled>اختار رتبه المستخدم</option>
-                            <option value="1">مندوب</option>
-                            <option value="2">تاجر</option>
-                            <option value="3">مزارع</option>
-                            <option value="4">موظف استقبال</option>
-                            <option value="0">مدير</option>
+                            <option value="1" {{ old('type') == '1' ? 'selected':''}} >مندوب</option>
+                            <option value="2" {{ old('type') == '2' ? 'selected':''}} >تاجر</option>
+                            <option value="3" {{ old('type') == '3' ? 'selected':''}} >مزارع</option>
+                            <option value="4" {{ old('type') == '4' ? 'selected':''}} >موظف استقبال</option>
+                            <option value="0" {{ old('type') == '5' ? 'selected':''}} >مدير</option>
                         </select>
                     </div>
                 </div>

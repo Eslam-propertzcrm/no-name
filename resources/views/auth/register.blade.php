@@ -34,6 +34,11 @@
 
     <!--end::Global Theme Styles -->
     <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico"/>
+    <style>
+        .invalid-feedback {
+            display: block !important;
+        }
+    </style>
 </head>
 
 <!-- end::Head -->
@@ -42,17 +47,17 @@
 <body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
 
 
-<div class="text-center">
-    @if($errors->all())
-        <div style="color: #a94442; background-color: #f2dede; border-color: #ebccd1;" class="alert ">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-</div>
+{{--<div class="text-center">--}}
+{{--@if($errors->all())--}}
+{{--<div style="color: #a94442; background-color: #f2dede; border-color: #ebccd1;" class="alert ">--}}
+{{--<ul>--}}
+{{--@foreach($errors->all() as $error)--}}
+{{--<li>{{$error}}</li>--}}
+{{--@endforeach--}}
+{{--</ul>--}}
+{{--</div>--}}
+{{--@endif--}}
+{{--</div>--}}
 
 <!-- begin:: Page -->
 <div class="m-grid m-grid--hor m-grid--root m-page">
@@ -76,11 +81,21 @@
                         @csrf
                         <div class="form-group m-form__group">
                             <input class="form-control m-input" type="text" placeholder=" اسم المستخدم" name="name"
-                                   value="{{ old('name') }}" required autofocus>
+                                   value="{{ old('name') }}" autofocus required>
+                            @if ($errors->has('name'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                            @endif
                         </div>
                         <div class="form-group m-form__group">
                             <input class="form-control m-input" type="number" placeholder="رقم الجوال" name="phone"
                                    value="{{ old('phone') }}" required>
+                            @if ($errors->has('phone'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                            @endif
                         </div>
 
 
@@ -88,31 +103,55 @@
                             <select class="form-control m-input" name="country" id="country" required
                                     style="padding: 0px 1.5rem;">
                                 <option selected disabled>اختار البلد</option>
-                                <option value="مصر">مصر</option>
-                                <option value="السعوديه">السعوديه</option>
-                                <option value="الاردن">الاردن</option>
+                                <option value="مصر" {{ old('country') == 'مصر' ? 'selected':''}}>مصر</option>
+                                <option value="السعوديه" {{ old('country') == 'السعوديه' ? 'selected':''}} >السعوديه
+                                </option>
+                                <option value="الاردن" {{ old('country') == 'الاردن' ? 'selected':''}} >الاردن</option>
                             </select>
+                            @if ($errors->has('country'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('country') }}</strong>
+                                    </span>
+                            @endif
                         </div>
 
 
                         <div class="form-group m-form__group ">
                             <select class="form-control m-input" name="governorate" id="governorate" required
                                     style="padding: 0px 1.5rem;">
-                                <option selected>اختار المحافظه</option>
-
+                                @if(old('governorate'))
+                                    <option selected value="{{old('governorate')}}">  {{old('governorate')}}</option>
+                                @else
+                                    <option selected>اختار المحافظه</option>
+                                @endif
 
                             </select>
+                            @if ($errors->has('governorate'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('governorate') }}</strong>
+                                    </span>
+                            @endif
                         </div>
 
 
                         <div class="form-group m-form__group">
                             <input class="form-control m-input" type="text" placeholder="   المدينه" name="city"
                                    value="{{ old('city') }}" required>
+                            @if ($errors->has('city'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                            @endif
                         </div>
 
                         <div class="form-group m-form__group">
                             <input class="form-control m-input" type="password" placeholder=" كلمه المرور "
                                    name="password">
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                            @endif
                         </div>
                         <div class="form-group m-form__group">
                             <input class="form-control m-input m-login__form-input--last" type="password"

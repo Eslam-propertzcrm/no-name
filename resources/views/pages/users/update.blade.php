@@ -25,7 +25,7 @@
                     <label for="example-text-input" class="col-2 col-form-label"> الاسم</label>
                     <div class="col-10">
                         <input class="form-control m-input" placeholder=" ادخل  اسم  المستخدم " name="name" type="text"
-                               id="example-text-input" value="{{$user->name}}">
+                               id="example-text-input" value="{{$user->name}}" required>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                     <label for="example-number-input" class="col-2 col-form-label">رقم الجوال </label>
                     <div class="col-10">
                         <input class="form-control m-input" name="phone" type="number" placeholder="ادخل رقم الجوال "
-                               id="example-number-input" value="{{$user->phone}}">
+                               id="example-number-input" value="{{$user->phone}}" required>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                     <div class="col-10">
                         <input class="form-control m-input" placeholder=" ادخل المدينه " value="{{$user->city}}"
                                name="city" type="text"
-                               id="example-text-input">
+                               id="example-text-input" required>
                     </div>
                 </div>
 
@@ -81,7 +81,7 @@
                 <div class="form-group m-form__group row">
                     <label for="example-number-input" class="col-2 col-form-label"> الرتبه</label>
                     <div class="col-10">
-                        <select class="form-control m-input" name="type">
+                        <select class="form-control m-input" name="type" required>
                             <option disabled>اختار رتبه المستخدم</option>
                             <option value="1" {{$user->type == 1 ? 'selected ':''}}>مندوب</option>
                             <option value="2" {{$user->type == 2 ? 'selected ':''}}>تاجر</option>

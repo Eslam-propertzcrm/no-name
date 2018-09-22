@@ -20,16 +20,52 @@
             <div class="m-portlet__body">
 
                 <div class="form-group m-form__group row">
+
+
                     <div class="col-md-6 form-group">
-                        <input class="form-control m-input" placeholder="ادخل اسم الصنف" name="productName[]"
-                               type="text" id="example-text-input">
+                        <div class="col-10">
+                            <select class="form-control m-input" name="productName[]">
+                                <option selected disabled> اختار نوع الخضار</option>
+                                @foreach($vegetables as $vegetable)
+
+                                    <option value="{{$vegetable->product}}">
+                                        {{ $vegetable->product }}
+
+                                        {{' ['}}
+                                        {{'     حموله الصنوق '}}
+                                        <?php
+                                        $country = auth()->user()->country;
+                                        switch ($country) {
+                                            case  'مصر':
+                                                echo $vegetable->egypt;
+                                                break;
+
+                                            case  'الاردن':
+                                                echo $vegetable->Jordan;
+                                                break;
+
+                                            case  'السعوديه':
+                                                echo $vegetable->Saudi;
+                                                break;
+
+                                        }
+                                        ?>
+                                        {{'كيلو جرام '}}
+                                        {{']'}}
+                                    </option>
+
+
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
+
 
                     <div class="col-md-6 form-group">
                         <input class="form-control m-input" name="numberBox[]" type="number"
                                placeholder=" عدد  الصناديق "
                                id="example-number-input">
-                        <span style="color: #F66E84"> اقل عدد صناديق مسموح به 50 صندوق</span>
+                        <span style="color: #F66E84">اقل عدد صناديق مسموح به 50 صندوق</span>
                     </div>
                 </div>
 

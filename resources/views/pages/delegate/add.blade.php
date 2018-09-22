@@ -24,10 +24,11 @@
                     <div class="col-10">
                         <select class="form-control m-input" name="country" id="country" required
                         >
-                            <option selected disabled> اختار البلد</option>
-                            <option value="مصر">مصر</option>
-                            <option value="السعوديه">السعوديه</option>
-                            <option value="الاردن">الاردن</option>
+                            <option {{ old('country') == null ? 'selected' : '' }} disabled> اختار البلد</option>
+                            <option value="مصر" {{ old('country') == 'مصر' ? 'selected' : '' }} >مصر</option>
+                            <option value="السعوديه" {{ old('country') == 'السعوديه' ? 'selected' : '' }}>السعوديه
+                            </option>
+                            <option value="الاردن" {{ old('country') == 'الاردن' ? 'selected' : '' }}>الاردن</option>
                         </select>
                     </div>
                 </div>
@@ -38,9 +39,15 @@
                     <div class="col-10">
                         <select class="form-control m-input" name="governorate" id="governorate" required
                                 style="padding: 0px 1.5rem;">
-                            <option selected disabled>اختار المحافظه</option>
+
+                            @if(old('governorate'))
+                                <option selected value="{{  old('governorate')}}">{{  old('governorate')}}</option>
 
 
+                            @else
+                                <option selected disabled>اختار المحافظه</option>
+
+                            @endif
                         </select>
                     </div>
                 </div>
@@ -49,17 +56,49 @@
                 <div class="form-group m-form__group row">
                     <label for="example-text-input" class="col-2 col-form-label"> نوع الخضار </label>
                     <div class="col-10">
-                        <input class="form-control m-input" placeholder=" ادخل    نوع الخضار " name="product"
-                               type="text" id="example-text-input">
+                        <select class="form-control m-input" name="product">
+                            <option selected disabled> اختار نوع الخضار</option>
+                            @foreach($vegetables as $vegetable)
+
+                                <option value="{{$vegetable->product}}">
+                                    {{ $vegetable->product }}
+
+                                    {{' ['}}
+                                    {{'     حموله الصنوق '}}
+                                    <?php
+                                    $country = auth()->user()->country;
+                                    switch ($country) {
+                                        case  'مصر':
+                                            echo $vegetable->egypt;
+                                            break;
+
+                                        case  'الاردن':
+                                            echo $vegetable->Jordan;
+                                            break;
+
+                                        case  'السعوديه':
+                                            echo $vegetable->Saudi;
+                                            break;
+
+                                    }
+                                    ?>
+                                    {{'كيلو جرام '}}
+                                    {{']'}}
+                                </option>
+
+
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
                 <div class="form-group m-form__group row">
-                    <label for="example-number-input" class="col-2 col-form-label"> السعر </label>
+                    <label for="example-number-input" class="col-2 col-form-label">
+                        السعر </label>
                     <div class="col-10">
-                        <input class="form-control m-input" name="price" type="number"
+                        <input class="form-control m-input" name="price" type="number" value="{{ old('price') }}"
                                placeholder=" ادخل السعر "
-                               id="example-number-input">
+                               id="example-number-input" required>
                     </div>
                 </div>
 

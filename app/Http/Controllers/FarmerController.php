@@ -31,18 +31,18 @@ class FarmerController extends Controller
 
     public function store(Request $request)
     {
-
-
         $this->validate($request, [
             'name' => 'required',
             'numberBox' => 'required',
             'priceBox' => 'required',
+            'boxLoad' => 'required',
         ]);
         $farmerProduct = new farmerProduct();
         $farmerProduct->user_id = auth()->user()->id;
         $farmerProduct->name = $request->name;
         $farmerProduct->numberBox = $request->numberBox;
         $farmerProduct->priceBox = $request->priceBox;
+        $farmerProduct->boxLoad = $request->boxLoad;
 
 
         $farmerProduct->save();
@@ -68,12 +68,14 @@ class FarmerController extends Controller
             'name' => 'required',
             'numberBox' => 'required',
             'priceBox' => 'required',
+            'boxLoad' => 'required',
 
         ]);
 
         $farmerProduct->name = $request->name;
         $farmerProduct->numberBox = $request->numberBox;
         $farmerProduct->priceBox = $request->priceBox;
+        $farmerProduct->boxLoad = $request->boxLoad;
 
 
         $farmerProduct->update();

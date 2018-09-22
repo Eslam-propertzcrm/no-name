@@ -26,7 +26,7 @@
                     <label for="example-text-input" class="col-2 col-form-label"> اسم المنتج</label>
                     <div class="col-10">
                         <input class="form-control m-input" placeholder=" ادخل  اسم   المنتج " name="name" type="text"
-                               id="example-text-input" value="{{$farmerProduct->name}}">
+                               id="example-text-input" value="{{$farmerProduct->name}}" required>
                     </div>
                 </div>
 
@@ -35,7 +35,17 @@
                     <div class="col-10">
                         <input class="form-control m-input" name="numberBox" type="number"
                                placeholder="     اقل عدد مسموح به 50 صندوق "
-                               id="example-number-input" value="{{$farmerProduct->numberBox}}">
+                               id="example-number-input" value="{{$farmerProduct->numberBox}}" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group m-form__group row">
+                    <label for="example-number-input" class="col-2 col-form-label"> حموله الصندوق</label>
+                    <div class="col-10">
+                        <input class="form-control m-input" name="boxLoad" type="number"
+                               placeholder="     الوزن بالكيلو  جرام "
+                               id="example-number-input" required value="{{$farmerProduct->boxLoad}}">
                     </div>
                 </div>
 
@@ -45,7 +55,7 @@
                     <div class="col-10">
                         <input class="form-control m-input" name="priceBox" type="number"
                                placeholder=" ادخل سعر الصندوق "
-                               id="example-number-input" value="{{$farmerProduct->priceBox}}">
+                               id="example-number-input" value="{{$farmerProduct->priceBox}}" required>
                     </div>
                 </div>
 

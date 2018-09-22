@@ -108,7 +108,7 @@
                                         <div class="col-10">
                                             <input class="form-control m-input" placeholder=" ادخل  اسم  المستخدم "
                                                    name="name" type="text"
-                                                   id="example-text-input" value="{{auth()->user()->name}}">
+                                                   id="example-text-input" value="{{auth()->user()->name}}" required>
                                         </div>
                                     </div>
 
@@ -118,7 +118,7 @@
                                         <div class="col-10">
                                             <input class="form-control m-input" name="phone" type="number"
                                                    placeholder="ادخل رقم الجوال "
-                                                   id="example-number-input" value="{{auth()->user()->phone}}">
+                                                   id="example-number-input" value="{{auth()->user()->phone}}" required>
                                         </div>
                                     </div>
 
@@ -167,7 +167,7 @@
                                             <input class="form-control m-input" placeholder=" ادخل المدينه "
                                                    value="{{auth()->user()->city}}"
                                                    name="city" type="text"
-                                                   id="example-text-input">
+                                                   id="example-text-input" required>
                                         </div>
                                     </div>
 

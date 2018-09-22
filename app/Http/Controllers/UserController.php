@@ -38,7 +38,8 @@ class UserController extends Controller
             'type' => 'required',
             'country' => 'required',
             'governorate' => 'required',
-            'city' => 'required',
+            'city' => 'required|confirmed',
+            'password' => 'required',
         ]);
         $user = new User();
         $user->name = $request->name;

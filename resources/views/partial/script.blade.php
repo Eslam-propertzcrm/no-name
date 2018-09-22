@@ -118,10 +118,19 @@
 
 
     var row = '     <div class="form-group m-form__group row">\n' +
-        '                    <div class="col-md-6 form-group">\n' +
-        '                        <input class="form-control m-input" placeholder="ادخل اسم الصنف" name="productName[]"\n' +
-        '                               type="text" id="example-text-input">\n' +
-        '                    </div>\n' +
+        '  <div class="col-md-6 form-group">\n' +
+        '  <div class="col-10">\n' +
+        '  <select class="form-control m-input" name="productName[]">\n' +
+        '  <option selected disabled> اختار نوع الخضار</option>\n' +
+        ' <option value="جزر">جزر</option>\n' +
+        ' <option value="بصل"> بصل</option>\n' +
+        ' <option value="ثوم"> ثوم</option>\n' +
+        ' <option value="بطاطس"> بطاطس</option>\n' +
+        ' <option value="ليمون"> ليمون</option>\n' +
+        ' <option value="فلفل">فلفل</option>\n' +
+        ' </select>\n' +
+        ' </div>\n' +
+        ' </div>\n' +
         '\n' +
         '                    <div class="col-md-6 form-group">\n' +
         '                        <input class="form-control m-input" name="numberBox[]" type="number"\n' +

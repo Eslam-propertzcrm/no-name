@@ -34,6 +34,11 @@
 
     <!--end::Global Theme Styles -->
     <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico"/>
+    <style>
+        .invalid-feedback {
+            display: block !important;
+        }
+    </style>
 </head>
 
 <!-- end::Head -->
@@ -53,18 +58,6 @@
                     </a>
                 </div>
 
-                <div class="text-center">
-                    @if($errors->all())
-                        <div style="color: #a94442; background-color: #f2dede; border-color: #ebccd1;" class="alert ">
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                    <li>{{$error}}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </div>
-
 
                 <div class="m-login__signin">
                     <div class="m-login__head">
@@ -76,11 +69,21 @@
                         @csrf
                         <div class="form-group m-form__group">
                             <input class="form-control m-input" type="number" placeholder=" رقم الجوال" name="phone"
-                                   autocomplete="off" value="{{ old('email') }}" required autofocus>
+                                   autocomplete="off" value="{{ old('phone') }}" required autofocus>
+                            @if ($errors->has('phone'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                            @endif
                         </div>
                         <div class="form-group m-form__group">
                             <input class="form-control m-input m-login__form-input--last" type="password"
-                                   placeholder=" كلمه المرور " name="password">
+                                   placeholder=" كلمه المرور " name="password" required>
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                            @endif
                         </div>
                         <div class="row m-login__form-sub">
                             <div class="col m--align-left m-login__form-left">
@@ -108,7 +111,7 @@
 							<span class="m-login__account-msg">
 								 لا تمتلك حساب ؟
 							</span>&nbsp;&nbsp;
-                    <a href="{{url('/register')}}"  class="m-link m-link--light m-login__account-link">
+                    <a href="{{url('/register')}}" class="m-link m-link--light m-login__account-link">
                         انشاء حساب جديد </a>
                 </div>
             </div>
