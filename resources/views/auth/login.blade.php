@@ -5,7 +5,7 @@
 <!-- begin::Head -->
 <head>
     <meta charset="utf-8"/>
-    <title>NO Name</title>
+    <title> بدون اسم</title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{url('/css/customStyle.css')}}">
@@ -33,7 +33,7 @@
     <link href="assets/demo/default/base/style.bundle.rtl.css" rel="stylesheet" type="text/css"/>
 
     <!--end::Global Theme Styles -->
-    <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico"/>
+    <link rel="shortcut icon" href="{{url('/')}}/assets/demo/default/media/img/logo/logo_default_dark.png"/>
     <style>
         .invalid-feedback {
             display: block !important;

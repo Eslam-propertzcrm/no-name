@@ -1,0 +1,85 @@
+@extends('layouts.app')
+@section('content')
+
+
+    <div class="m-portlet m-portlet--tab">
+
+
+        <!--begin::Form-->
+        <form class="m-form m-form--fit m-form--label-align-right" method="post"
+              action="{{url('/submitDelegateDoneBuy')}}">
+            @csrf
+            <div class="m-portlet__body">
+
+
+                <div class="form-group m-form__group row">
+
+                    <label for="example-text-input" class="col-2 col-form-label"> اسم المزارع</label>
+                    <div class="col-md-10 form-group">
+
+                        <select class="form-control m-input" name="farmer_id">
+                            <option selected disabled> اختار المزارع</option>
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-2 col-form-label"> اسم المنتج</label>
+                    <div class="col-10">
+                        <input class="form-control m-input" placeholder=" ادخل  اسم   المنتج " name="name" type="text"
+                               id="example-text-input" required value="{{old('name')}}">
+                    </div>
+                </div>
+
+                <div class="form-group m-form__group row">
+                    <label for="example-number-input" class="col-2 col-form-label"> عدد الصناديق </label>
+                    <div class="col-10">
+                        <input class="form-control m-input" name="numberBox" type="number"
+                               placeholder="     اقل عدد مسموح به 50 صندوق "
+                               id="example-number-input" required value="{{old('numberBox')}}">
+                    </div>
+                </div>
+
+
+                <div class="form-group m-form__group row">
+                    <label for="example-number-input" class="col-2 col-form-label"> حموله الصندوق</label>
+                    <div class="col-10">
+                        <input class="form-control m-input" name="boxLoad" type="number"
+                               placeholder="     الوزن بالكيلو  جرام "
+                               id="example-number-input" required value="{{old('boxLoad')}}">
+                    </div>
+                </div>
+
+
+                <div class="form-group m-form__group row">
+                    <label for="example-number-input" class="col-2 col-form-label"> سعر الصندوق</label>
+                    <div class="col-10">
+                        <input class="form-control m-input" name="priceBox" type="number"
+                               placeholder=" ادخل سعر الصندوق "
+                               id="example-number-input" required value="{{old('priceBox')}}">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="m-portlet__foot m-portlet__foot--fit">
+                <div class="m-form__actions">
+                    <div class="row">
+                        <div class="col-2">
+                        </div>
+                        <div class="col-10">
+                            <button type="submit" class="btn btn-success">حفظ</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+@stop

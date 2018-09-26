@@ -89,10 +89,10 @@
                         <select class="form-control m-input" name="type" required>
                             <option selected disabled>اختار رتبه المستخدم</option>
                             <option value="1" {{ old('type') == '1' ? 'selected':''}} >مندوب</option>
-                            <option value="2" {{ old('type') == '2' ? 'selected':''}} >تاجر</option>
+                            <option value="2" {{ old('type') == '2' ? 'selected':''}} >تاجر او وكيل</option>
                             <option value="3" {{ old('type') == '3' ? 'selected':''}} >مزارع</option>
                             <option value="4" {{ old('type') == '4' ? 'selected':''}} >موظف استقبال</option>
-                            <option value="0" {{ old('type') == '5' ? 'selected':''}} >مدير</option>
+                            <option value="0" {{ old('type') == '0' ? 'selected':''}} >مدير</option>
                         </select>
                     </div>
                 </div>

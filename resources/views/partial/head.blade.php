@@ -37,16 +37,18 @@
           type="text/css"/>
 
     <!--end::Page Vendors Styles -->
-    <link rel="shortcut icon" href="{{url('/')}}/assets/demo/default/media/img/logo/favicon.ico"/>
-
+    <link rel="shortcut icon" href="{{url('/')}}/assets/demo/default/media/img/logo/logo_default_dark.png"/>
     {{-- start custom style --}}
-
     <link rel="stylesheet" href="{{url('/css/customStyle.css')}}">
     {{-- end custom style --}}
     <link href="https://fonts.googleapis.com/css?family=Tajawal:400,700,900" rel="stylesheet">
     <style>
         body, h1, h2, h3, h4, h5, h6, p, li, a {
             font-family: 'Roboto', 'Tajawal', sans-serif !important;
+        }
+
+        .la-eye {
+            font-size: 19px !important;
         }
     </style>
 

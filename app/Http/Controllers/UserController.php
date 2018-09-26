@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DoneBuyProduct;
+use App\DoneOrder;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -111,4 +113,41 @@ class UserController extends Controller
     {
         return view('pages.users.profile');
     }
+
+
+    public function reportSale()
+    {
+
+        return view('pages.users.reportSale')->with([
+            'orders' => \App\DoneOrder::get(),
+        ]);
+
+    }
+
+    public function reportBuy()
+    {
+
+        return view('pages.users.reportBuy')->with([
+            'buyProducts' => DoneBuyProduct::get(),
+        ]);
+    }
+
+    public function deleteReportSale($id)
+    {
+
+        $reportSale = DoneOrder::find($id);
+        $reportSale->delete();
+        return redirect('reportSale');
+
+    }
+
+    public function deleteReportBuy($id)
+    {
+        $doneBuyProduct = DoneBuyProduct::find($id);
+        $doneBuyProduct->delete();
+        return redirect('reportBuy');
+
+    }
+
+
 }

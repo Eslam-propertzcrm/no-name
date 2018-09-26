@@ -6,8 +6,19 @@
     <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark "
          m-menu-vertical="1" m-menu-scrollable="1" m-menu-dropdown-timeout="500" style="position: relative;">
         <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+            {{--general user --}}
+            <li class="m-menu__item " aria-haspopup="true">
+                <a href="{{url('/priceCompany')}}" class="m-menu__link ">
+                    <i class="m-menu__link-icon flaticon-line-graph"></i>
+                    <span class="m-menu__link-title">
+                            <span class="m-menu__link-wrap">
+                                <span class="m-menu__link-text">         اسعار الشركه </span>
+                            </span>
+                        </span>
+                </a>
+            </li>
 
-
+            {{--admin--}}
             @if(auth()->user()->type == 0)
                 {{--user managment--}}
                 <li class="m-menu__item m-menu__item--submenu m-menu__item--active m-menu__item--open"
@@ -42,8 +53,32 @@
                         </ul>
                     </div>
                 </li>
+
+
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="{{url('/reportSale')}}" class="m-menu__link ">
+                        <i class="m-menu__link-icon flaticon-line-graph"></i>
+                        <span class="m-menu__link-title">
+                            <span class="m-menu__link-wrap">
+                                <span class="m-menu__link-text">            تقارير  البيع  </span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="{{url('/reportBuy')}}" class="m-menu__link ">
+                        <i class="m-menu__link-icon flaticon-line-graph"></i>
+                        <span class="m-menu__link-title">
+                            <span class="m-menu__link-wrap">
+                                <span class="m-menu__link-text"> تقارير الشراء</span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
             @endif
 
+            {{--delegate--}}
             @if(auth()->user()->type == 1)
                 {{--gallary product--}}
                 <li class="m-menu__item " aria-haspopup="true">
@@ -56,6 +91,7 @@
                         </span>
                     </a>
                 </li>
+
                 {{--manage price market--}}
                 <li class="m-menu__item m-menu__item--submenu m-menu__item--active m-menu__item--open"
                     aria-haspopup="true"
@@ -89,8 +125,34 @@
                         </ul>
                     </div>
                 </li>
+
+                {{--sale--}}
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="{{url('/delegateSale')}}" class="m-menu__link ">
+                        <i class="m-menu__link-icon flaticon-line-graph"></i>
+                        <span class="m-menu__link-title">
+                            <span class="m-menu__link-wrap">
+                                <span class="m-menu__link-text">         حركه بيع  </span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
+                {{--buy--}}
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="{{url('/delegateBuy')}}" class="m-menu__link ">
+                        <i class="m-menu__link-icon flaticon-line-graph"></i>
+                        <span class="m-menu__link-title">
+                            <span class="m-menu__link-wrap">
+                                <span class="m-menu__link-text">         حركه شراء </span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
             @endif
 
+            {{--dealer--}}
             @if(auth()->user()->type == 2)
 
                 {{--delar gallary product--}}
@@ -117,6 +179,7 @@
                 </li>
             @endif
 
+            {{--farmer--}}
             @if(auth()->user()->type == 3)
                 {{--Farmer loan--}}
                 <li class="m-menu__item " aria-haspopup="true">
@@ -164,6 +227,45 @@
                 </li>
             @endif
 
+            {{--call center--}}
+            @if(auth()->user()->type == 4)
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="{{url('/listFarmerLoans')}}" class="m-menu__link ">
+                        <i class="m-menu__link-icon flaticon-line-graph"></i>
+                        <span class="m-menu__link-title">
+                            <span class="m-menu__link-wrap">
+                                <span class="m-menu__link-text">      طلبات القرض الحسن </span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
+
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="{{url('/listFarmerProduct')}}" class="m-menu__link ">
+                        <i class="m-menu__link-icon flaticon-line-graph"></i>
+                        <span class="m-menu__link-title">
+                            <span class="m-menu__link-wrap">
+                                <span class="m-menu__link-text">           عروض المزارعين </span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
+
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="{{url('/listDealerOrder')}}" class="m-menu__link ">
+                        <i class="m-menu__link-icon flaticon-line-graph"></i>
+                        <span class="m-menu__link-title">
+                            <span class="m-menu__link-wrap">
+                                <span class="m-menu__link-text">              طلبات التجار </span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
+
+            @endif
 
         </ul>
     </div>

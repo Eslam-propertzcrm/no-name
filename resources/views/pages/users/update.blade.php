@@ -84,7 +84,7 @@
                         <select class="form-control m-input" name="type" required>
                             <option disabled>اختار رتبه المستخدم</option>
                             <option value="1" {{$user->type == 1 ? 'selected ':''}}>مندوب</option>
-                            <option value="2" {{$user->type == 2 ? 'selected ':''}}>تاجر</option>
+                            <option value="2" {{$user->type == 2 ? 'selected ':''}}>تاجر او وكيل</option>
                             <option value="3" {{$user->type == 3 ? 'selected ':''}}>مزارع</option>
                             <option value="4" {{$user->type == 4 ? 'selected ':''}}>موظف استقبال</option>
                             <option value="0" {{$user->type == 0 ? 'selected ':''}}>مدير</option>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\DoneBuyProduct;
+use App\DoneOrder;
+use App\DoneOrderProduct;
 use App\market;
 use Illuminate\Http\Request;
 
@@ -104,6 +107,75 @@ class DelegateController extends Controller
                 ->where('country', '=', auth()->user()->country)
                 ->groupBy('product'),
         ]);
+    }
+
+
+    public function delegateSale()
+    {
+        return view('pages.delegate.sale')->with([
+            'vegetables' => \App\vegetable::get(),
+            'users' => \App\User::where('type', '=', '2')->get(),
+        ]);
+    }
+
+
+    public function submitDelegateDoneOrder(Request $request)
+    {
+
+
+        $this->validate($request, [
+            'dealer_id' => 'required',
+            'productName' => 'required',
+            'productName.*' => 'required',
+            'numberBox' => 'required',
+            'numberBox.*' => 'required',
+        ]);
+
+        $order = new DoneOrder();
+        $order->delegate_id = auth()->user()->id;
+        $order->dealer_id = $request->dealer_id;
+        $order->save();
+
+        for ($i = 0; $i < count($request->productName); $i++) {
+            $orderProduct = new  DoneOrderProduct();
+            $orderProduct->order_id = $order->id;
+            $orderProduct->productName = $request->productName[$i];
+            $orderProduct->numberBox = $request->numberBox[$i];
+            $orderProduct->save();
+        }
+        session()->flash('success', 'تم    ارسال الطلب  بنجاح!');
+        return redirect('/delegateSale');
+    }
+
+    public function delegateBuy()
+    {
+        return view('pages.delegate.buy')->with([
+            'users' => \App\User::where('type', '=', '3')->get(),
+        ]);
+    }
+
+
+    public function submitDelegateDoneBuy(Request $request)
+    {
+        $this->validate($request, [
+            'farmer_id' => 'required',
+            'name' => 'required',
+            'numberBox' => 'required',
+            'priceBox' => 'required',
+            'boxLoad' => 'required',
+        ]);
+        $farmerProduct = new DoneBuyProduct();
+        $farmerProduct->user_id = auth()->user()->id;
+        $farmerProduct->farmer_id = $request->farmer_id;
+        $farmerProduct->name = $request->name;
+        $farmerProduct->numberBox = $request->numberBox;
+        $farmerProduct->priceBox = $request->priceBox;
+        $farmerProduct->boxLoad = $request->boxLoad;
+
+
+        $farmerProduct->save();
+        session()->flash('success', 'تم   اضافه المنتج  بنجاح!');
+        return redirect('/delegateBuy');
     }
 
 

@@ -34,7 +34,7 @@ class RedirectIfAuthenticated
                     return redirect('/farmerProduct'); // مزارع
                     break;
                 case '4':
-                    return redirect('/orders'); // كول سنتر
+                    return redirect('/listDealerOrder'); // كول سنتر
                     break;
             }
 
