@@ -12,6 +12,7 @@
 <!--begin::Page Scripts -->
 
 
+
 @yield('script')
 
 
