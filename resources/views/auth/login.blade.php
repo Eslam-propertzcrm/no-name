@@ -34,9 +34,22 @@
 
     <!--end::Global Theme Styles -->
     <link rel="shortcut icon" href="{{url('/')}}/assets/demo/default/media/img/logo/logo_default_dark.png"/>
+
+
+    {{-- end custom style --}}
+    <link href="https://fonts.googleapis.com/css?family=Tajawal:400,700,900" rel="stylesheet">
+
     <style>
         .invalid-feedback {
             display: block !important;
+        }
+
+        body, h1, h2, h3, h4, h5, h6, p, li, a, input, button ,select{
+            font-family: 'Roboto', 'Tajawal', sans-serif !important;
+        }
+
+        .la-eye {
+            font-size: 19px !important;
         }
     </style>
 </head>
